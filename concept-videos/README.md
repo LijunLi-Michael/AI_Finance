@@ -35,6 +35,11 @@ Short, animated **explainer videos** that accompany the whole course — a **ful
 13. **What is Hyperliquid** — the whole perpetual exchange, on-chain: CEX speed + DEX transparency.
 14. **What is Polymarket** — same matching engine, new game: price *is* probability.
 
+**W7 · x402 & Farcaster — pay & speak**
+15. **What is x402** — HTTP 402, revived by Coinbase: the agent pays USDC on Base per call, inside the request (GET → 402 → sign → retry → 200), behind a spend fence (per-call cap + daily cap + seller allowlist).
+16. **The Agent Economy** — earn → pay → speak; an agent that earns, pays and speaks is an economic actor, not a tool. Pay-per-call is the plumbing Coinbase is building.
+17. **What is Farcaster** — on-chain social identity; the agent posts in public what it did, human-gated (draft → preview → `--yes` → posted, sanitized).
+
 **Foundations · overview · the map**
 - **Futures & Options Basics** — futures vs options; futures come in two kinds; the call/put × long/short quadrants; binary options.
 - **Obligation or Right** — one question sorts every derivative: an obligation is a straight line, a right bends into a kink.

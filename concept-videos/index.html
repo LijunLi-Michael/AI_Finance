@@ -50,7 +50,7 @@
 <div class="wrap">
   <header>
     <h1>AI Finance · Concept Videos
-      <span class="sub">A full-course companion in short explainers · contracts → DeFi → Agent → quant → derivatives</span>
+      <span class="sub">A full-course companion in short explainers · contracts → DeFi → Agent → quant → derivatives → x402 &amp; Farcaster</span>
     </h1>
     <div class="spacer"></div>
     <label class="opt"><input type="checkbox" id="autonext" checked> auto-play next</label>
@@ -68,7 +68,7 @@
   <div class="foot">
     A full-course companion of short explainer videos spanning the whole course.<br>
     Click a card to play · <b>← →</b> to switch · space to pause · fullscreen bottom-right.<br>
-    Arc: smart contracts (a vending machine) → DeFi Lego (AMM / lending / farming) → composability &amp; arbitrage (arbitrage / flash loans / bots) → from tool to Agent (brain &amp; hands) → quant on a CEX like OKX (strategies / carry / perpetuals) → on-chain &amp; a new game (Hyperliquid / Polymarket). The overview <i>Obligation or Right</i> ties the derivatives together with one question.<br>
+    Arc: smart contracts (a vending machine) → DeFi Lego (AMM / lending / farming) → composability &amp; arbitrage (arbitrage / flash loans / bots) → from tool to Agent (brain &amp; hands) → quant on a CEX like OKX (strategies / carry / perpetuals) → on-chain &amp; a new game (Hyperliquid / Polymarket) → x402 &amp; Farcaster, the agent's last two verbs: pay and speak. The overview <i>Obligation or Right</i> ties the derivatives together with one question.<br>
     Videos stream from the <a href="https://github.com/aaron-recompile/AI_Finance/releases/tag/concept-videos-v1">GitHub Release</a> — download any file there to watch fully offline. Content is AI-assisted.
   </div>
 </div>
@@ -90,6 +90,9 @@ const DATA = [
  {sec:"okx", n:12, t:"What is a Perpetual", g:"Spot + a funding spring, never expires", f:"4-perpetual.mp4"},
  {sec:"chain", n:13, t:"What is Hyperliquid", g:"A perp on-chain = CEX speed + DEX transparency", f:"5-hyperliquid.mp4"},
  {sec:"game", n:14, t:"What is Polymarket", g:"Same engine, new game: price = probability", f:"6-polymarket.mp4"},
+ {sec:"w7", n:15, t:"What is x402", g:"HTTP 402 revived: money in the request, pay per call", f:"x402.mp4"},
+ {sec:"w7", n:16, t:"The Agent Economy", g:"earn → pay → speak: an actor, not a tool", f:"agent-economy.mp4"},
+ {sec:"w7", n:17, t:"What is Farcaster", g:"On-chain identity, a public voice, human-gated", f:"farcaster.mp4"},
  {sec:"map", n:"◆", alt:true, t:"Futures & Options Basics", g:"Futures/options + four quadrants + binary", f:"7-futures-options-basics.mp4"},
  {sec:"map", n:"★", alt:true, t:"Obligation or Right (overview)", g:"One question: obligation→line / right→kink / step", f:"8-obligation-or-right.mp4"},
  {sec:"map", n:"✦", alt:true, t:"Three Anchors", g:"What anchors price: delivery / funding / oracle", f:"9-three-anchors.mp4"},
@@ -102,6 +105,7 @@ const SECS = {
   okx:"W5 · Quant · what OKX can do",
   chain:"W6 · On-chain",
   game:"W6 · A new on-chain game",
+  w7:"W7 · x402 & Farcaster · pay & speak",
   map:"Foundations · overview · the map",
 };
 let cur=0;
@@ -109,7 +113,7 @@ const player=document.getElementById("player"), listEl=document.getElementById("
 function fmt(s){ if(!isFinite(s)) return ""; s=Math.round(s); return Math.floor(s/60)+":"+String(s%60).padStart(2,"0"); }
 function build(){
   listEl.innerHTML="";
-  ["w1","w2","w3","w4","okx","chain","game","map"].forEach(sec=>{
+  ["w1","w2","w3","w4","okx","chain","game","w7","map"].forEach(sec=>{
     const items=DATA.map((v,i)=>({v,i})).filter(o=>o.v.sec===sec);
     if(!items.length) return;
     const lab=document.createElement("div"); lab.className="seclabel"; lab.textContent=SECS[sec]; listEl.appendChild(lab);
