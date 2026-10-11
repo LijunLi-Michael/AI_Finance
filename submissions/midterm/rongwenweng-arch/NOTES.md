@@ -33,9 +33,11 @@ Size is not a grid search: chaining two constant-product swaps gives
   bot, or the instructor re-skewing a pool) I can end up selling for less than I paid. The
   re-route in leg 2 and the 1% slippage floor on router legs limit this but do not remove it.
   This bit me for real: I stopped the orchestrator while a seventh round was between its two
-  legs, so the wallet was left holding 2.1312 MAX and 0 tUSDC. Nothing was lost, but it
-  showed the risk is not theoretical, so I added `--unwind <amount>` to sell a stranded leg
-  on whichever venue pays the most.
+  legs, so the wallet was left holding 2.1312 MAX and 0 tUSDC. It showed the risk is not
+  theoretical, so I added `--unwind <amount>` to sell a stranded leg on whichever venue pays
+  the most, and used it to close the position (see Evidence). The price had not moved against
+  me, so that round still ended +241.91 tUSDC; had it moved, the same unwind would have
+  locked in a loss.
 - **The edge closes as I trade.** Every round pushes the cheap pool up and the dear pool down,
   so profit per round shrinks; once the gap is inside ~0.6% fees the bot correctly stops.
 - **Competition.** Anyone running the same idea with more capital or a higher gas bid takes
@@ -61,4 +63,8 @@ Size is not a grid search: chaining two constant-product swaps gives
   as I traded, so profit per round was already falling.
 - All of the transactions above were sent before I split the decision logic out into
   `strategy.py`; the split moved code between files without changing the math.
+- Seventh round, interrupted between its legs and closed with `--unwind 2.1312` (this one ran
+  on the split code): sold 2.1312 MAX on DEAR for 4,268.52 tUSDC, +241.91 tUSDC on the round.
+  https://sepolia.basescan.org/tx/0x89f0f3d496858237c9831e3520c79d8133f581f52b9aa1af73c2e34e8774fc93
+- Wallet over all seven rounds: 2,193.46 → 4,268.52 tUSDC (**+2,075.06**).
 - Leaderboard: (attach a screenshot in your Classroom PDF)
