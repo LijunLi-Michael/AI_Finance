@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Finance · Concept Videos</title>
+<style>
+  :root{
+    --bg:#0b0e14; --card:#171d2b; --border:#273041;
+    --fg:#f2f2f2; --muted:#8a93a6; --amber:#f5b83d;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--fg);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  .wrap{max-width:1180px;margin:0 auto;padding:22px 20px 60px}
+  header{display:flex;flex-wrap:wrap;align-items:baseline;gap:14px;margin-bottom:18px}
+  h1{font-size:24px;font-weight:800;margin:0;letter-spacing:.3px}
+  h1 .sub{display:block;font-size:13px;font-weight:500;color:var(--muted);margin-top:4px}
+  .spacer{flex:1}
+  .opt{display:inline-flex;align-items:center;gap:7px;color:var(--muted);font-size:13px;cursor:pointer;user-select:none}
+  .opt input{accent-color:var(--amber);width:16px;height:16px}
+  .stage{background:#000;border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,.4)}
+  video{display:block;width:100%;aspect-ratio:16/9;background:#000}
+  .nowbar{display:flex;align-items:center;gap:14px;margin:14px 2px 24px;flex-wrap:wrap}
+  .nowtitle{font-size:17px;font-weight:800}
+  .navbtn{background:var(--card);border:1px solid var(--border);color:var(--fg);border-radius:10px;
+    padding:9px 16px;font-size:14px;font-weight:700;cursor:pointer}
+  .navbtn:hover{border-color:var(--amber)}
+  .navbtn:disabled{opacity:.35;cursor:default}
+  .seclabel{display:flex;align-items:center;gap:12px;margin:26px 2px 12px;color:var(--amber);
+    font-size:13px;font-weight:800;letter-spacing:1px;text-transform:uppercase}
+  .seclabel::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--border),transparent)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+  .card{display:flex;gap:14px;align-items:flex-start;background:var(--card);border:1px solid var(--border);
+    border-radius:14px;padding:15px 16px;cursor:pointer;transition:.15s}
+  .card:hover{border-color:#3a4760;transform:translateY(-1px)}
+  .card.active{border-color:var(--amber);box-shadow:0 0 0 1px var(--amber) inset}
+  .num{flex:none;width:34px;height:34px;border-radius:9px;background:var(--amber);color:#1a1205;
+    font-weight:900;font-size:17px;display:flex;align-items:center;justify-content:center}
+  .num.alt{background:#2b3446;color:var(--amber)}
+  .meta{min-width:0}
+  .meta .t{font-size:15.5px;font-weight:800;line-height:1.25}
+  .meta .g{font-size:12.5px;color:var(--muted);margin-top:5px;line-height:1.4}
+  .meta .d{font-size:11.5px;color:var(--muted);margin-top:7px;font-variant-numeric:tabular-nums}
+  .foot{margin-top:34px;color:var(--muted);font-size:12px;line-height:1.7}
+  .foot a{color:var(--amber)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>AI Finance · Concept Videos
+      <span class="sub">Quant → Derivatives → On-chain · watch anytime, rewatch as needed</span>
+    </h1>
+    <div class="spacer"></div>
+    <label class="opt"><input type="checkbox" id="autonext" checked> auto-play next</label>
+  </header>
+
+  <div class="stage"><video id="player" controls preload="metadata" playsinline></video></div>
+  <div class="nowbar">
+    <button class="navbtn" id="prev">← Prev</button>
+    <button class="navbtn" id="next">Next →</button>
+    <div class="nowtitle" id="nowtitle"></div>
+  </div>
+
+  <div id="list"></div>
+
+  <div class="foot">
+    Click a card to play · <b>← →</b> to switch · space to pause · fullscreen bottom-right.<br>
+    Storyline: what you can do on a CEX like OKX (strategies / carry / perpetuals) → put it on-chain (Hyperliquid) → a new on-chain game (Polymarket). The overview <i>Obligation or Right</i> ties it together with one question.<br>
+    Videos stream from the <a href="https://github.com/aaron-recompile/AI_Finance/releases/tag/concept-videos-v1">GitHub Release</a> — download any file there to watch fully offline. Content is AI-assisted.
+  </div>
+</div>
+
+<script>
+const BASE = "https://github.com/aaron-recompile/AI_Finance/releases/download/concept-videos-v1/";
+const DATA = [
+ {sec:"okx", n:1, t:"Common Quant Strategies", g:"What are you betting on? Four buckets", f:"1-common-quant-strategies.mp4"},
+ {sec:"okx", n:2, t:"Quant Metrics 101", g:"Read a backtest: drawdown, Sharpe, Calmar", f:"2-quant-metrics-101.mp4"},
+ {sec:"okx", n:3, t:"What is Cash-and-Carry", g:"Must converge → lock the basis, always +$3", f:"3-cash-and-carry.mp4"},
+ {sec:"okx", n:4, t:"What is a Perpetual", g:"Spot + a funding spring, never expires", f:"4-perpetual.mp4"},
+ {sec:"chain", n:5, t:"What is Hyperliquid", g:"A perp on-chain = CEX speed + DEX transparency", f:"5-hyperliquid.mp4"},
+ {sec:"game", n:6, t:"What is Polymarket", g:"Same engine, new game: price = probability", f:"6-polymarket.mp4"},
+ {sec:"map", n:"◆", alt:true, t:"Futures & Options Basics", g:"Futures/options + four quadrants + binary", f:"7-futures-options-basics.mp4"},
+ {sec:"map", n:"★", alt:true, t:"Obligation or Right (overview)", g:"One question: obligation→line / right→kink / step", f:"8-obligation-or-right.mp4"},
+ {sec:"map", n:"✦", alt:true, t:"Three Anchors", g:"What anchors price: delivery / funding / oracle", f:"9-three-anchors.mp4"},
+];
+const SECS = {
+  okx:"① Quant · what a CEX can do",
+  chain:"② On-chain",
+  game:"③ A new on-chain game",
+  map:"Foundations · overview · the map",
+};
+let cur=0;
+const player=document.getElementById("player"), listEl=document.getElementById("list"), nowt=document.getElementById("nowtitle");
+function fmt(s){ if(!isFinite(s)) return ""; s=Math.round(s); return Math.floor(s/60)+":"+String(s%60).padStart(2,"0"); }
+function build(){
+  listEl.innerHTML="";
+  ["okx","chain","game","map"].forEach(sec=>{
+    const items=DATA.map((v,i)=>({v,i})).filter(o=>o.v.sec===sec);
+    if(!items.length) return;
+    const lab=document.createElement("div"); lab.className="seclabel"; lab.textContent=SECS[sec]; listEl.appendChild(lab);
+    const grid=document.createElement("div"); grid.className="grid";
+    items.forEach(({v,i})=>{
+      const card=document.createElement("div"); card.className="card"+(i===cur?" active":""); card.dataset.i=i;
+      card.innerHTML=`<div class="num${v.alt?' alt':''}">${v.n}</div>
+        <div class="meta"><div class="t">${v.t}</div><div class="g">${v.g}</div><div class="d" data-dur></div></div>`;
+      card.onclick=()=>load(i,true);
+      grid.appendChild(card);
+      const probe=document.createElement("video"); probe.preload="metadata"; probe.src=BASE+v.f;
+      probe.onloadedmetadata=()=>{ const el=card.querySelector("[data-dur]"); if(el) el.textContent=fmt(probe.duration); };
+    });
+    listEl.appendChild(grid);
+  });
+}
+function load(i,play){
+  cur=i; player.src=BASE+DATA[i].f; nowt.textContent=DATA[i].t;
+  document.querySelectorAll(".card").forEach(c=>c.classList.toggle("active",+c.dataset.i===i));
+  if(play) player.play().catch(()=>{});
+  document.getElementById("prev").disabled=(i===0);
+  document.getElementById("next").disabled=(i===DATA.length-1);
+}
+document.getElementById("prev").onclick=()=>{ if(cur>0) load(cur-1,true); };
+document.getElementById("next").onclick=()=>{ if(cur<DATA.length-1) load(cur+1,true); };
+player.addEventListener("ended",()=>{ if(document.getElementById("autonext").checked && cur<DATA.length-1) load(cur+1,true); });
+document.addEventListener("keydown",e=>{
+  if(e.target.tagName==="INPUT") return;
+  if(e.key==="ArrowRight"){ if(cur<DATA.length-1) load(cur+1,true); }
+  if(e.key==="ArrowLeft"){ if(cur>0) load(cur-1,true); }
+});
+build(); load(0,false);
+</script>
+</body>
+</html>
