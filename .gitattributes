@@ -1,0 +1,9 @@
+# Curate the GitHub language bar for an on-chain course.
+# The authored source of interest is Solidity (the smart contracts); the HTML
+# is slide decks / demos (teaching material), the JSON files are compiled
+# contract artifacts, and the Python/JS are interaction & tooling scripts
+# around the contracts. Files are unchanged — this only affects the language %.
+*.html linguist-documentation
+*.json linguist-generated
+*.py   linguist-detectable=false
+*.js   linguist-detectable=false
