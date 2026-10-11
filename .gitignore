@@ -16,3 +16,6 @@ env/
 
 # os
 .DS_Store
+
+# Foundry dependencies — restore with: forge install foundry-rs/forge-std@v1.16.2
+lib/
