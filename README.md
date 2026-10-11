@@ -85,6 +85,33 @@ Every money action **plans → waits for your `confirm` → executes → verifie
 
 ---
 
+## Week 5 — CEX: the Execution Layer (OKX + Alpaca) + Cash-and-Carry
+
+After building our own on-chain primitives, we drop to the **centralized execution layer**: how you actually talk to an exchange/broker over an API, and how a market-neutral **cash-and-carry** really pays once fees are counted. **Paper / demo money only; keys come from your env or the macOS keychain, never hard-coded.**
+
+| What | Where |
+|------|-------|
+| 🖥️ **Slides** | [`week-05/slides/AI_Finance_Week5_CEX.html`](week-05/slides/AI_Finance_Week5_CEX.html) — CEX vs DEX, order types, cash-and-carry |
+| 📝 **Overview** | [`week-05/README.md`](week-05/README.md) |
+| 💻 **Code** | [`week-05/code/`](week-05/code/) — `okx/` (connect · history · orders · websocket) · `strategies/` (`trend_follow` · `mean_reversion` · `cash_and_carry` · `carry_run`) · `alpaca/` (stocks, paper) · `jarvis-okx-carry/` (the agent running carry behind a gate) |
+| 🎬 **Concept videos** | *Common Quant Strategies* · *Quant Metrics 101* · *What is Cash-and-Carry* → [watch](https://aaron-recompile.github.io/AI_Finance/concept-videos/) |
+
+---
+
+## Week 6 — Derivatives: Perps on Hyperliquid (+ Polymarket)
+
+The agent stops trading the present and starts trading the **future**: funding on perpetuals, and the probability of an event. The code is the **Hyperliquid** half — read the on-chain order book and funding, place/cancel orders, replay a strategy honestly, run a two-leg **funding-carry** bot. **Hyperliquid testnet only; keys from local, gitignored files.** The prediction-market half ships as a minimal teaching skeleton.
+
+| What | Where |
+|------|-------|
+| 🖥️ **Slides** | [`week-06/slides/AI_Finance_Week6_Derivatives.html`](week-06/slides/AI_Finance_Week6_Derivatives.html) — perps · funding · prediction markets |
+| 📝 **Overview** | [`week-06/README.md`](week-06/README.md) |
+| 💻 **Code — Hyperliquid** | [`week-06/code/hyperliquid/`](week-06/code/hyperliquid/) — `book` · `funding` · `hl_read` · `hl_trade` · `hl_replay` · `hl_carry_bot` · `hl_agent` |
+| 💻 **Code — Polymarket** | [`week-06/code/polymarket/`](week-06/code/polymarket/) — minimal prediction-market skeleton (`prediction_market.py` · `demo.py`) |
+| 🎬 **Concept videos** | *What is a Perpetual* · *What is Hyperliquid* · *What is Polymarket* · *Futures & Options Basics* · *Obligation or Right* · *Three Anchors* → [watch](https://aaron-recompile.github.io/AI_Finance/concept-videos/) |
+
+---
+
 ## Repository layout
 
 Each week is one folder with the same shape — look in the same place every week:
