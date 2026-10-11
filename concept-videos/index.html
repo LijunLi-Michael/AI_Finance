@@ -50,7 +50,7 @@
 <div class="wrap">
   <header>
     <h1>AI Finance · Concept Videos
-      <span class="sub">Explainers on quant &amp; financial engineering · futures/options basics · perps &amp; prediction — an experiment, not full course coverage</span>
+      <span class="sub">A full-course companion in short explainers · contracts → DeFi → Agent → quant → derivatives</span>
     </h1>
     <div class="spacer"></div>
     <label class="opt"><input type="checkbox" id="autonext" checked> auto-play next</label>
@@ -66,9 +66,9 @@
   <div id="list"></div>
 
   <div class="foot">
-    An experimental set of explainer videos on quant &amp; financial engineering, futures/options basics, and frontier topics (perps, prediction) — selected topics, not the whole course.<br>
+    A full-course companion of short explainer videos spanning the whole course.<br>
     Click a card to play · <b>← →</b> to switch · space to pause · fullscreen bottom-right.<br>
-    Storyline: what you can do on a CEX like OKX (strategies / carry / perpetuals) → put it on-chain (Hyperliquid) → a new on-chain game (Polymarket). The overview <i>Obligation or Right</i> ties it together with one question.<br>
+    Arc: smart contracts (a vending machine) → DeFi Lego (AMM / lending / farming) → composability &amp; arbitrage (arbitrage / flash loans / bots) → from tool to Agent (brain &amp; hands) → quant on a CEX like OKX (strategies / carry / perpetuals) → on-chain &amp; a new game (Hyperliquid / Polymarket). The overview <i>Obligation or Right</i> ties the derivatives together with one question.<br>
     Videos stream from the <a href="https://github.com/aaron-recompile/AI_Finance/releases/tag/concept-videos-v1">GitHub Release</a> — download any file there to watch fully offline. Content is AI-assisted.
   </div>
 </div>
@@ -76,20 +76,32 @@
 <script>
 const BASE = "https://github.com/aaron-recompile/AI_Finance/releases/download/concept-videos-v1/";
 const DATA = [
- {sec:"okx", n:1, t:"Common Quant Strategies", g:"What are you betting on? Four buckets", f:"1-common-quant-strategies.mp4"},
- {sec:"okx", n:2, t:"Quant Metrics 101", g:"Read a backtest: drawdown, Sharpe, Calmar", f:"2-quant-metrics-101.mp4"},
- {sec:"okx", n:3, t:"What is Cash-and-Carry", g:"Must converge → lock the basis, always +$3", f:"3-cash-and-carry.mp4"},
- {sec:"okx", n:4, t:"What is a Perpetual", g:"Spot + a funding spring, never expires", f:"4-perpetual.mp4"},
- {sec:"chain", n:5, t:"What is Hyperliquid", g:"A perp on-chain = CEX speed + DEX transparency", f:"5-hyperliquid.mp4"},
- {sec:"game", n:6, t:"What is Polymarket", g:"Same engine, new game: price = probability", f:"6-polymarket.mp4"},
+ {sec:"w1", n:1, t:"A Contract = a Vending Machine", g:"Poke it, it acts: deterministic, no owner, code is law", f:"contract-vending.mp4"},
+ {sec:"w2", n:2, t:"What is an AMM", g:"A x·y=k curve + a pool; buy more, slip more", f:"amm.mp4"},
+ {sec:"w2", n:3, t:"Lending & Liquidation", g:"Over-collateralize → health factor → below 1, liquidated", f:"lending-liquidation.mp4"},
+ {sec:"w2", n:4, t:"Yield Farming", g:"Printed rewards, mine-withdraw-dump; high APY ≠ real yield", f:"yield-farming.mp4"},
+ {sec:"w3", n:5, t:"What is Arbitrage", g:"Two prices, buy low sell high; the gap closes itself", f:"arbitrage.mp4"},
+ {sec:"w3", n:6, t:"What is a Flash Loan", g:"Zero collateral, atomic: all-or-nothing", f:"flash-loan.mp4"},
+ {sec:"w3", n:7, t:"Bots vs Manual", g:"Millisecond window; a bot is fast hands, brain is human-given", f:"bots-vs-manual.mp4"},
+ {sec:"w4", n:8, t:"Brain and Hands (Program vs Agent)", g:"Brain proposes, rules approve, hands act; gate blocks injection", f:"brain-and-hands.mp4"},
+ {sec:"okx", n:9, t:"Common Quant Strategies", g:"What are you betting on? Four buckets", f:"1-common-quant-strategies.mp4"},
+ {sec:"okx", n:10, t:"Quant Metrics 101", g:"Read a backtest: drawdown, Sharpe, Calmar", f:"2-quant-metrics-101.mp4"},
+ {sec:"okx", n:11, t:"What is Cash-and-Carry", g:"Must converge → lock the basis, always +$3", f:"3-cash-and-carry.mp4"},
+ {sec:"okx", n:12, t:"What is a Perpetual", g:"Spot + a funding spring, never expires", f:"4-perpetual.mp4"},
+ {sec:"chain", n:13, t:"What is Hyperliquid", g:"A perp on-chain = CEX speed + DEX transparency", f:"5-hyperliquid.mp4"},
+ {sec:"game", n:14, t:"What is Polymarket", g:"Same engine, new game: price = probability", f:"6-polymarket.mp4"},
  {sec:"map", n:"◆", alt:true, t:"Futures & Options Basics", g:"Futures/options + four quadrants + binary", f:"7-futures-options-basics.mp4"},
  {sec:"map", n:"★", alt:true, t:"Obligation or Right (overview)", g:"One question: obligation→line / right→kink / step", f:"8-obligation-or-right.mp4"},
  {sec:"map", n:"✦", alt:true, t:"Three Anchors", g:"What anchors price: delivery / funding / oracle", f:"9-three-anchors.mp4"},
 ];
 const SECS = {
-  okx:"① Quant · what a CEX can do",
-  chain:"② On-chain",
-  game:"③ A new on-chain game",
+  w1:"W1 · Smart Contracts",
+  w2:"W2 · DeFi Lego",
+  w3:"W3 · Composability · Arbitrage",
+  w4:"W4 · From Tool to Agent",
+  okx:"W5 · Quant · what OKX can do",
+  chain:"W6 · On-chain",
+  game:"W6 · A new on-chain game",
   map:"Foundations · overview · the map",
 };
 let cur=0;
@@ -97,7 +109,7 @@ const player=document.getElementById("player"), listEl=document.getElementById("
 function fmt(s){ if(!isFinite(s)) return ""; s=Math.round(s); return Math.floor(s/60)+":"+String(s%60).padStart(2,"0"); }
 function build(){
   listEl.innerHTML="";
-  ["okx","chain","game","map"].forEach(sec=>{
+  ["w1","w2","w3","w4","okx","chain","game","map"].forEach(sec=>{
     const items=DATA.map((v,i)=>({v,i})).filter(o=>o.v.sec===sec);
     if(!items.length) return;
     const lab=document.createElement("div"); lab.className="seclabel"; lab.textContent=SECS[sec]; listEl.appendChild(lab);

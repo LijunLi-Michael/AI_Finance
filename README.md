@@ -4,7 +4,7 @@ Course materials for **MB / CSE 599 · AI Finance**. We don't just *study* block
 
 > **New here? Start with [`SETUP.md`](SETUP.md).** It takes ~20 minutes and works on macOS / Windows / Linux.
 
-> 🎬 **Concept videos (experimental):** short animated explainers on **quant & financial engineering** — the basics of **futures & options**, and frontier topics like **perpetuals** and **prediction markets**. A trial run at teaching these ideas on video, *not* full course coverage. Watch at **[aaron-recompile.github.io/AI_Finance/concept-videos](https://aaron-recompile.github.io/AI_Finance/concept-videos/)** (or see [`concept-videos/`](concept-videos/)) — rewatch as needed.
+> 🎬 **Concept videos (full-course companion):** short animated explainers that span the whole course — from what a smart contract even *is* (a vending machine), through DeFi, arbitrage and flash loans, autonomous agents, quant, and derivatives. One concept per video. Watch at **[aaron-recompile.github.io/AI_Finance/concept-videos](https://aaron-recompile.github.io/AI_Finance/concept-videos/)** (or see [`concept-videos/`](concept-videos/)) — rewatch as needed.
 
 ---
 
@@ -20,6 +20,7 @@ Course materials for **MB / CSE 599 · AI Finance**. We don't just *study* block
 | 📚 **Reference pack (terms + cheatsheet)** | [`week-01/foundations-reference-pack.md`](week-01/foundations-reference-pack.md) |
 | 🎮 **Interactive demos** | [`week-01/demos/`](week-01/demos/) — open the `.html` files in a browser |
 | 💻 **Code** | [`week-01/code/`](week-01/code/) |
+| 🎬 **Concept video** | *A Contract = a Vending Machine* → [watch](https://aaron-recompile.github.io/AI_Finance/concept-videos/) |
 
 ### The code (Week 1)
 
@@ -52,6 +53,7 @@ The building blocks. Swap on an AMM, then supply/borrow on a lending market — 
 | 🎮 **Interactive dApps** | [`week-02/app/`](week-02/app/) — `v2.html` (AMM swap) · `lend.html` (lending) · `farm.html` (yield farming: mine & dump) |
 | 📊 **Visualizations** | [`week-02/viz/`](week-02/viz/) — AMM swap · lending & liquidation |
 | 💻 **Code** | [`week-02/code/`](week-02/code/) — `amm.py` · `lend.py` · `lend_demo.py`; Foundry: `amm-foundry` (SimpleAMM) · `lend-foundry` (SimpleLend) |
+| 🎬 **Concept videos** | *What is an AMM* · *Lending & Liquidation* · *Yield Farming* → [watch](https://aaron-recompile.github.io/AI_Finance/concept-videos/) |
 
 ---
 
@@ -67,6 +69,7 @@ Snap the legos together into arbitrage and flash loans — first **by hand**, th
 | 📊 **Visualizations** | [`week-03/viz/`](week-03/viz/) — flash loan · interest-rate arb · leveraged carry |
 | 🤖 **Bot lab (run it)** | [`week-03/code/lab-bot/`](week-03/code/lab-bot/) — 5 deterministic bots + a live dashboard. `pip install web3` then `./student_start.sh` (read-only, no wallet) and watch them detect on-chain opportunities the instant the market moves. |
 | 💻 **Contracts (Foundry)** | [`week-03/code/flashloan-foundry/`](week-03/code/flashloan-foundry/) — FlashLender + Arbitrageur + SimpleAMM |
+| 🎬 **Concept videos** | *What is Arbitrage* · *What is a Flash Loan* · *Bots vs Manual* → [watch](https://aaron-recompile.github.io/AI_Finance/concept-videos/) |
 
 ---
 
@@ -80,6 +83,7 @@ Your bots were a pair of **hands** you drove by hand. This week a **brain** runs
 | 💬 **Demo prompts** | [`week-04/prompts/jarvis-demo-prompts.md`](week-04/prompts/jarvis-demo-prompts.md) — what to say to the agent, organized by lego |
 | 🤖 **Example skills** | [`week-04/skills/`](week-04/skills/) — real `SKILL.md` recipes (swap · lend · flash-arb) + the `USER.md` standing-rules fence (sanitized) |
 | 📝 **Overview** | [`week-04/README.md`](week-04/README.md) |
+| 🎬 **Concept video** | *Brain and Hands (Program vs Agent)* → [watch](https://aaron-recompile.github.io/AI_Finance/concept-videos/) |
 
 Every money action **plans → waits for your `confirm` → executes → verifies on-chain → reports**. The LLM never sizes a trade, never signs, never sees the key.
 
