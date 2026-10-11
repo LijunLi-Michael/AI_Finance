@@ -4,7 +4,7 @@ Course materials for **MB / CSE 599 · AI Finance**. We don't just *study* block
 
 > **New here? Start with [`SETUP.md`](SETUP.md).** It takes ~20 minutes and works on macOS / Windows / Linux.
 
-> 🎬 **Concept videos — watch anytime:** short animated explainers for quant, derivatives, Hyperliquid and Polymarket. Play them in order at **[aaron-recompile.github.io/AI_Finance/concept-videos](https://aaron-recompile.github.io/AI_Finance/concept-videos/)** (or see [`concept-videos/`](concept-videos/)). No separate assignment for this unit — rewatch as needed.
+> 🎬 **Concept videos (experimental):** short animated explainers on **quant & financial engineering** — the basics of **futures & options**, and frontier topics like **perpetuals** and **prediction markets**. A trial run at teaching these ideas on video, *not* full course coverage. Watch at **[aaron-recompile.github.io/AI_Finance/concept-videos](https://aaron-recompile.github.io/AI_Finance/concept-videos/)** (or see [`concept-videos/`](concept-videos/)) — rewatch as needed.
 
 ---
 

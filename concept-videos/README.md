@@ -1,6 +1,6 @@
 # AI Finance · Concept Videos
 
-Short, animated concept videos for the course — an **async, rewatchable** way to learn the frontier topics (quant, derivatives, Hyperliquid, Polymarket). There is no separate problem set for this unit: watch these as many times as you need, in order, and you'll have the mental models.
+Short, animated **explainer videos** on **quant and financial engineering** — the basics of **futures and options**, plus frontier topics like **perpetuals (perps)** and **prediction markets**. This is an **experiment** in teaching these ideas on video: a selected set of explainers, **not full coverage of the course**. Watch them as many times as you need — there's no separate problem set for this unit.
 
 ## Watch
 
