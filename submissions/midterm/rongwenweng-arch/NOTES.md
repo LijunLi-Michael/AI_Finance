@@ -4,6 +4,14 @@
 **GitHub:** rongwenweng-arch
 **Wallet:** 0x7Bfe6bef0E8092bf2d829a75Af11dDfd6A7b4140
 
+## Files
+- `strategy.py` — the strategy itself: `decide(view)` takes a market snapshot (each venue's
+  reserves + my tUSDC balance) and returns the trade to make. No RPC, no wallet; run
+  `python strategy.py` for an offline self-check.
+- `my_strategy_bot.py` — the on-chain adapter in the arena's `scan()` + `fire()` shape: it
+  builds the view, calls `decide(view)`, and sends the transactions. Copy both files into
+  `week-03/code/lab-bot/` to run.
+
 ## What my strategy does
 `cross-family-router` treats the arena's four MAX/tUSDC venues as one market. The provided
 bots only arbitrage inside a family (swap-arb: CHEAP↔DEAR, dex-arb: PoolA↔PoolB); mine reads
@@ -24,6 +32,10 @@ Size is not a grid search: chaining two constant-product swaps gives
 - **Not atomic.** Buy and sell are two transactions. If the price moves between them (another
   bot, or the instructor re-skewing a pool) I can end up selling for less than I paid. The
   re-route in leg 2 and the 1% slippage floor on router legs limit this but do not remove it.
+  This bit me for real: I stopped the orchestrator while a seventh round was between its two
+  legs, so the wallet was left holding 2.1312 MAX and 0 tUSDC. Nothing was lost, but it
+  showed the risk is not theoretical, so I added `--unwind <amount>` to sell a stranded leg
+  on whichever venue pays the most.
 - **The edge closes as I trade.** Every round pushes the cheap pool up and the dear pool down,
   so profit per round shrinks; once the gap is inside ~0.6% fees the bot correctly stops.
 - **Competition.** Anyone running the same idea with more capital or a higher gas bid takes
@@ -47,4 +59,6 @@ Size is not a grid search: chaining two constant-product swaps gives
   - PoolA → DEAR, +242.90 tUSDC: https://sepolia.basescan.org/tx/0x58d4ac405aedd21c998f0e6ca7640fbb5311b70ea6ab706a9b342deb827a7018
 - Orchestrator session total: 5 fires, **+1,526.07 tUSDC**; the gap narrowed from 15.6% to 8.5%
   as I traded, so profit per round was already falling.
+- All of the transactions above were sent before I split the decision logic out into
+  `strategy.py`; the split moved code between files without changing the math.
 - Leaderboard: (attach a screenshot in your Classroom PDF)
