@@ -1,0 +1,2 @@
+Today my agent ran a cash-and-carry on testnet: bought spot, shorted the perp,
+and pocketed the basis — delta-neutral, no direction bet. Numbers in the thread.

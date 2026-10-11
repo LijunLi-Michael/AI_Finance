@@ -116,6 +116,19 @@ The agent stops trading the present and starts trading the **future**: funding o
 
 ---
 
+## Week 7 — x402 & Farcaster: Pay and Speak
+
+For six weeks the agent learned to **earn**. Week 7 adds the last two verbs — to **pay**, and to **speak**. An agent that earns, pays, and speaks is an **economic actor**, not just a tool. **Testnet / tiny amounts only; keys from env or a gitignored `.env`, never committed.**
+
+| What | Where |
+|------|-------|
+| 🖥️ **Slides** | [`week-07/slides/AI_Finance_Week7_x402_Farcaster.html`](week-07/slides/AI_Finance_Week7_x402_Farcaster.html) — Pay and Speak |
+| 📝 **Overview** | [`week-07/README.md`](week-07/README.md) |
+| 💻 **Pay — x402** | [`week-07/code/x402/`](week-07/code/x402/) — pay-per-call USDC on Base; `x402_agent.py` runs with no setup, behind a spend fence (per-call/daily cap + seller allowlist) |
+| 💬 **Speak — Farcaster** | [`week-07/code/farcaster/`](week-07/code/farcaster/) — post in public with `cast.py`; preview by default, `--yes` to send, every post human-gated |
+
+---
+
 ## Repository layout
 
 Each week is one folder with the same shape — look in the same place every week:
