@@ -6,7 +6,7 @@ Course materials for **MB / CSE 599 · AI Finance**. We don't just *study* block
 
 > 🎬 **Concept videos (full-course companion):** short animated explainers that span the whole course — from what a smart contract even *is* (a vending machine), through DeFi, arbitrage and flash loans, autonomous agents, quant, and derivatives. One concept per video. Watch at **[aaron-recompile.github.io/AI_Finance/concept-videos](https://aaron-recompile.github.io/AI_Finance/concept-videos/)** (or see [`concept-videos/`](concept-videos/)) — rewatch as needed.
 
-> 🏗️ **Built from scratch:** nearly everything here was hand-built — a clickable **AMM, lending, farming, arbitrage and flash-loan** DeFi set, an on-chain **bot arena**, and **three exchanges on one engine** (spot CEX · perpetuals · prediction market), each with its own token. Try the live dApps and see the whole stack in **[`built-from-scratch/`](built-from-scratch/)**.
+> 🧪 **Labs:** the course builds its on-chain pieces from first principles — a clickable **AMM, lending, farming, arbitrage and flash-loan** set, an on-chain **bot arena**, and **three venues on one matching engine** (spot · perpetuals · prediction). Open any of them and see how each works in **[`labs/`](labs/)**.
 
 > 📚 **Readings:** reading lists and pre-readings for each week — history, technical depth, and critical context, all linking to free sources. See **[`readings/`](readings/)**.
 
